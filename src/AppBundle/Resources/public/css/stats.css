@@ -1,0 +1,97 @@
+.page_navigation
+{
+  position: absolute;
+  left:0px;
+  width: calc(100% - 20px);
+  height: 45px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.page_navigation_button
+{
+  position: relative;
+  height: 28px;
+  width: 150px;
+  margin: 8px;
+  margin-left: 20px;
+  background-color:#004d00;
+  border: 0px;
+  color: white;
+  font-size:18px;
+  font-family: "Segoe UI",Arial,sans-serif;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.page_navigation_button:hover
+{
+  border: 2px solid #004d00;
+  color: #004d00;
+  background-color: white;
+  padding: 0px;
+}
+
+.div_page
+{
+  position: absolute;
+  width: calc(100% - 20px);
+  height:700px;
+  top: 0px;
+  left: 0px;
+  margin-top: 140px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.nav_chart
+{
+  position: absolute;
+  padding-left: 30px;
+  height: 35px;
+  width: calc(100% - 30px);
+  border-bottom: 1px solid #004d00;
+}
+
+.nav_chart_filter
+{
+  position: relative;
+  top: 5px;
+  width: 100px;
+  margin: 15px;
+  padding: 2px;
+  color:#004d00;
+  text-align: center;
+}
+
+.nav_chart_filter:hover
+{
+font-weight: bold;
+padding: 0px;
+}
+
+#div_singlestats
+{
+  display: none;
+}
+
+#chart_generalstats_expenses
+{
+  position: relative;
+  top: 70px;
+  left: 10px;
+  float: left;
+}
+
+#chart_generalstats_ratio_price_value
+{
+  position: relative;
+  top: 70px;
+  right: 20px;
+  float: right;
+}

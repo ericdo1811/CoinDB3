@@ -1,0 +1,10 @@
+$(document).ready(function()
+{
+  $(".tutorial_navigation_button").click(function()
+    {
+      console.log("zesz");
+      $(".tutorial_navigation").css("display","block");
+      $(".tutorial_navigation_button").attr("class","tutorial_navigation_button_click");
+    }
+  );
+});

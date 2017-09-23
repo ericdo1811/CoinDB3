@@ -1,0 +1,124 @@
+.table
+{
+  position: relative;
+  border-spacing: 15px;
+  margin-top: 10px;
+    perspective: 800px;
+    margin-left: 25px;
+}
+
+#table
+{
+  margin-top: 70px !important;
+}
+.td_dashboard
+{
+  transition: width 2s;
+transition-timing-function: linear;
+}
+
+.td_dashboard:hover
+{
+  -webkit-animation-name: animation;
+  -webkit-animation-duration: 300ms;
+  -webkit-animation-iteration-count: 1;
+
+}
+
+.td_theme
+{
+  position: relative;
+  height: 250px;
+  width: 350px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 10px 5px -6px rgba(0,0,0,0.37);
+}
+
+.td_entry
+{
+  position: relative;
+  height: 125px;
+  width: 200px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 10px 5px -6px rgba(0,0,0,0.37);
+}
+
+.td_entry2
+{
+  position: relative;
+  height: 125px;
+  width: 200px;
+  opacity: 0;
+  border-radius: 20px;
+  box-shadow: 5px 10px 5px -6px rgba(0,0,0,0.37);
+  z-index: 3;
+}
+.dashboard_zoomin_text
+{
+  display: none;
+  position: absolute;
+  height: 450px;
+  width: 80%;
+  margin-top: 248px;
+  margin-bottom: 80px;
+  margin-left: 70px;
+  margin-right: 80px;
+  background-color: white;
+  opacity: 1;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: -10px 7px 11px -2px rgba(0,0,0,0.4);
+  z-index: 3;
+}
+
+.dashboard_zoomin_theme_container
+{
+  display: none;
+  position: absolute;
+  width: 80%;
+  height: 240px;
+  margin-top: 15px;
+  margin-left: 70px;
+  margin-right: 80px;
+  margin-bottom: 0px;
+  background-color: #3b383c;
+  color: white;
+  opacity: 0.9;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  box-shadow: -10px 0px 11px -2px rgba(0,0,0,0.4);
+  z-index: 3;
+}
+
+.dashboard_zoomin_theme
+{
+  display: none;
+  position: absolute;
+  width: 600px;
+  height: 140px;
+  background-color: white;
+  margin-top: 100px;
+  margin-left: 450px;
+  opacity: 1;
+  border-radius: 20px;
+  z-index: 3;
+}
+
+.dashboard_themetext
+{
+  text-align: center;
+  font-size: 40px;
+  font-style: oblique;
+  margin-top: 10px;
+}
+
+.dashboard_closebutton
+{
+  display: none;
+  position: absolute;
+  margin-top: 85px;
+  margin-left: 1210px;
+  z-index: 3;
+}

@@ -1,0 +1,276 @@
+{% extends "base.html.twig" %}
+{% block title %}
+CoinDB-Statistik
+{% endblock %}
+{% block body %}
+
+{% javascripts '@AppBundle/Resources/public/zingchart/zingchart.min.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<div class="page_navigation">
+  <button class="page_navigation_button" id="button_generalstats">Gesamtstatistik</button>
+  <button class="page_navigation_button" id="button_singlestats">Einzelstatistiken</button>
+</div>
+<div class="div_page" id="div_generalstats">
+  <nav class="nav_chart">
+    <a class="nav_chart_filter" id="chart_year">Jährlich</a>
+    <a class="nav_chart_filter" id="chart_month">Monatlich</a>
+    <a class="nav_chart_filter" id="chart_week">Wöchentlich</a>
+  </nav>
+  <div class="chart" id="chart_generalstats_expenses"></div>
+  <div class="chart" id="chart_generalstats_ratio_price_value"></div>
+  <script>
+  var chartData = {
+    type: "hbar",  // Specify your chart type here.
+    title: {
+      text: "Ausgaben jährlich" // Adds a title to your chart
+    },
+    plot:
+    {
+      "animation":
+      {
+        "effect":"ANIMATION_SLIDE_BOTTOM",
+        "speed":"10000"
+      }
+    },
+    "scale-x":
+    {
+      "labels": ["Dez","Nov","Okt","Sep","Aug","Jul","Jun","Mai","Apr","Mär","Feb","Jan"]
+    },
+    "scale-y":
+    {
+      "labels": ["0€","10€","20€","30€","40€","50€","60€","70€","80€","90€","100€"]
+    },
+    legend: {}, // Creates an interactive legend
+    series: [  // Insert your series data here.
+          { values: [35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89],
+                    "text":"Ausgaben_Silbermünzen"},
+                    { values: [35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89],
+                    "text":"Ausgaben_Goldmünzen"},
+      ]
+    };
+
+  var chartData2 = {
+    "type": "hbar",  // Specify your chart type here.
+    "title": {
+      "text": "Verhältnis: Wert - Preis" // Adds a title to your chart
+    },
+    "scale-x":
+    {
+      "labels": ["Dez","Nov","Okt","Sep","Aug","Jul","Jun","Mai","Apr","Mär","Feb","Jan"]
+    },
+    "scale-y":
+    {
+      "labels": ["0€","10€","20€","30€","40€","50€","60€","70€","80€","90€","100€"]
+    },
+    "plot":
+    {
+      "animation":
+      {
+        "effect":"ANIMATION_SLIDE_BOTTOM",
+        "speed":"10000"
+      }
+    },
+    "legend": {}, // Creates an interactive legend
+    "series": [  // Insert your series data here.
+        { "values": [35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89],
+                  "text":"Wert"},
+                  { "values": [35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89],
+                  "text":"Preis"},
+    ]
+  };
+
+  var chartData_month = {
+  type: "hbar",  // Specify your chart type here.
+  title: {
+    text: "Ausgaben monatlich" // Adds a title to your chart
+  },
+  plot:
+  {
+    "animation":
+    {
+      "effect":"ANIMATION_SLIDE_BOTTOM",
+      "speed":"20000"
+    }
+  },
+  "scale-x":
+  {
+  "labels": ["1","2","3","4","5","6","7","8","9","10","11","12",13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+  },
+  "scale-y":
+  {
+    "labels": ["0€","10€","20€","30€","40€","50€","60€","70€","80€","90€","100€"]
+  },
+  legend: {}, // Creates an interactive legend
+  series: [  // Insert your series data here.
+    { "values": [35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67],
+              "text":"Wert"},
+              { "values": [42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,42, 67, 89,35, 42, 67, 89,35, 42, 67, 89],
+              "text":"Preis"},
+    ]
+  };
+
+var chartData2_month = {
+  "type": "hbar",  // Specify your chart type here.
+  "title": {
+    "text": "Verhältnis: Wert - Preis" // Adds a title to your chart
+  },
+  "scale-x":
+  {
+    "labels": ["1","2","3","4","5","6","7","8","9","10","11","12",13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
+  },
+  "scale-y":
+  {
+    "labels": ["0€","10€","20€","30€","40€","50€","60€","70€","80€","90€","100€"]
+  },
+  "plot":
+  {
+    "animation":
+    {
+      "effect":"ANIMATION_SLIDE_BOTTOM",
+      "speed":"10000"
+    }
+  },
+  "legend": {}, // Creates an interactive legend
+  series: [  // Insert your series data here.
+    { "values": [35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,35, 42, 67],
+              "text":"Wert"},
+              { "values": [42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,42, 67, 89,35, 42, 67, 89,35, 42, 67, 89,42, 67, 89,35, 42, 67, 89,35, 42, 67, 89],
+              "text":"Preis"},
+    ]
+  };
+
+var chartData_week = {
+  type: "hbar",  // Specify your chart type here.
+  title: {
+    text: "Ausgaben wöchentlich" // Adds a title to your chart
+  },
+  plot:
+  {
+    "animation":
+    {
+      "effect":"ANIMATION_SLIDE_BOTTOM",
+      "speed":"10000"
+    }
+  },
+  "scale-x":
+  {
+  "labels": ["1","2","3","4","5","6","7"]
+  },
+  "scale-y":
+  {
+    "labels": ["0€","10€","20€","30€","40€","50€","60€","70€","80€","90€","100€"]
+  },
+  legend: {}, // Creates an interactive legend
+  series: [  // Insert your series data here.
+    { "values": [35, 42, 67, 89,35, 42, 67],
+              "text":"Wert"},
+    { "values": [35, 42, 67, 89,35, 42, 67],
+              "text":"Preis"},
+    ]
+  };
+
+var chartData2_week = {
+  "type": "hbar",  // Specify your chart type here.
+  "title": {
+    "text": "Verhältnis: Wert - Preis" // Adds a title to your chart
+  },
+  "scale-x":
+  {
+    "labels": ["1","2","3","4","5","6","7"]
+  },
+  "scale-y":
+  {
+    "labels": ["0€","10€","20€","30€","40€","50€","60€","70€","80€","90€","100€"]
+  },
+  "plot":
+  {
+    "animation":
+    {
+      "effect":"ANIMATION_SLIDE_BOTTOM",
+      "speed":"10200"
+    }
+  },
+  "legend": {}, // Creates an interactive legend
+  series: [  // Insert your series data here.
+    { "values": [35, 42, 67, 89,35, 42, 67],
+              "text":"Wert"},
+    { "values": [35, 42, 67, 89,35, 42, 67],
+              "text":"Preis"},
+    ]
+  };
+
+  $("#chart_month").click(function()
+  {
+
+    zingchart.render({ // Render Method[3]
+      id: "chart_generalstats_expenses",
+      data: chartData_month,
+      height: 600,
+      width: 700
+    });
+
+      zingchart.render({ // Render Method[3]
+        id: "chart_generalstats_ratio_price_value",
+        data: chartData2_month,
+        height: 600,
+        width: 700
+      });
+  });
+
+  $("#chart_year").click(function()
+  {
+    zingchart.render({ // Render Method[3]
+      id: "chart_generalstats_expenses",
+      data: chartData,
+      height: 600,
+      width: 700
+    });
+
+      zingchart.render({ // Render Method[3]
+        id: "chart_generalstats_ratio_price_value",
+        data: chartData2,
+        height: 600,
+        width: 700
+      });
+  });
+
+  $("#chart_week").click(function()
+  {
+    zingchart.render({ // Render Method[3]
+      id: "chart_generalstats_expenses",
+      data: chartData_week,
+      height: 600,
+      width: 700
+    });
+
+      zingchart.render({ // Render Method[3]
+        id: "chart_generalstats_ratio_price_value",
+        data: chartData2_week,
+        height: 600,
+        width: 700
+      });
+  });
+
+  zingchart.render({ // Render Method[3]
+    id: "chart_generalstats_expenses",
+    data: chartData,
+    height: 600,
+    width: 700
+  });
+
+    zingchart.render({ // Render Method[3]
+      id: "chart_generalstats_ratio_price_value",
+      data: chartData2,
+      height: 600,
+      width: 700
+    });
+
+  </script>
+  </div>
+
+<div class="div_page" id="div_singlestats">
+  {% include '@AppBundle/Resources/public/info.php' %}
+</div>
+{% endblock %}

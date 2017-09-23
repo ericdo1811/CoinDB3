@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    {% stylesheets '@AppBundle/Resources/public/css/*' filter='cssrewrite' %}
+    <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+    {% javascripts '@AppBundle/Resources/public/js/*' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+  </head>
+  <body>
+    <nav class="navbar select">
+      <a href="/main">
+        {% image '@AppBundle/Resources/public/images/CoinDB.jpg' %}
+            <img class="icon_coindb" src="{{ asset_url }}" alt="Example"/>
+        {% endimage %}
+      </a>
+      <a class="navbar_a" id="navbar_dashboard" href="/main">
+        {% image '@AppBundle/Resources/public/images/dashboard.jpg' %}
+            <img class="icon_a" src="{{ asset_url }}" alt="Example"/>
+        {% endimage %}
+
+        <font class="navbar_text">Übersicht</font>
+      </a>
+      <a class="navbar_a" href="/main/coincards">
+        {% image '@AppBundle/Resources/public/images/coin.jpg' %}
+            <img class="icon_a" src="{{ asset_url }}" alt="Example"/>
+        {% endimage %}
+
+        <font class="navbar_text">Münzen</font>
+      </a>
+      <a class="navbar_a" href="/main/tutorial">
+        {% image '@AppBundle/Resources/public/images/tutorial.jpg' %}
+            <img class="icon_a" src="{{ asset_url }}" alt="Example"/>
+        {% endimage %}
+
+        <font class="navbar_text">Tutorial</font>
+      </a>
+      <a class="navbar_a" href="/main/stats">
+        {% image '@AppBundle/Resources/public/images/stats.jpg' %}
+            <img class="icon_a" src="{{ asset_url }}" alt="Example"/>
+        {% endimage %}
+
+        <font class="navbar_text">Statistiken</font>
+      </a>
+    </nav>
+    <div class="side_container">
+      {% block body %}{% endblock %}
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,140 @@
+html, body
+{
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #258e25;
+  font-size: 19px;
+  font-family: "Segoe UI",Arial,sans-serif;
+}
+
+.icon_coindb
+{
+  position: absolute;
+  height: 50px;
+  margin: 15px;
+  margin-top: 5px;
+  -webkit-animation-name: none;
+  -webkit-animation-duration: 130ms;
+  -webkit-animation-iteration-count: 1;
+}
+
+.icon_a
+{
+  position: relative;
+  top: 5px;
+  height: 25px;
+  color: white;
+}
+
+.navbar
+{
+  position: fixed;
+  top: 0px;
+  height: 60px;
+  width: 101%;
+  margin: 0px;
+  padding: 0px;
+  background-color: #0d582a;
+  z-index: 4;
+  box-shadow: -10px 7px 11px -2px rgba(0,0,0,0.4);
+  -webkit-animation-name: none;
+  -webkit-animation-duration: 130ms;
+  -webkit-animation-iteration-count: 1;
+}
+.navbar_a
+{
+    position: relative;
+    top: 20px;
+    width: 100px;
+    margin: 10px;
+    margin-top: 13px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    -webkit-animation-name: none;
+    -webkit-animation-duration: 130ms;
+    -webkit-animation-iteration-count: 1;
+}
+
+.navbar_a:hover
+{
+  border-bottom: 3px solid #3b383c;
+}
+
+#navbar_dashboard
+{
+  margin-left: 190px;
+}
+
+.navbar_scrolled
+{
+  opacity: 0.9;
+}
+
+.side_container
+{
+  margin-top: 60px;
+  margin-left: 5px;
+}
+
+@keyframes navbar
+{
+    0%{height: 60px;}
+    25%{height: 55px;}
+    50%{height: 50px;}
+    75%{height: 45px;}
+    100%{height: 35px;}
+}
+
+@keyframes navbar_back
+{
+    0%{height: 35px;}
+    25%{height: 45px;}
+    50%{height: 50px;}
+    75%{height: 55px;}
+    100%{height: 60px;}
+}
+
+@keyframes icon
+{
+    0%{top: 20px;}
+    25%{top: 16px;}
+    50%{top: 12px;}
+    75%{top: 8px;}
+    100%{top: 1px;}
+}
+
+@keyframes icon_back
+{
+    0%{top: 1px;}
+    25%{top: 8px;}
+    50%{top: 12px;}
+    75%{top: 16px;}
+    100%{top: 20px;}
+}
+
+@keyframes CoinDBicon
+{
+  0%{height: 50px;}
+  25%{height: 45px;}
+  50%{height: 40px;}
+  75%{height: 35px;}
+  100%{height: 25px;}
+}
+
+@keyframes CoinDBicon_back
+{
+  0%{height: 25px;}
+  25%{height: 35px;}
+  50%{height: 40px;}
+  75%{height: 45px;}
+  100%{height: 50px;}
+}
+
+.coins
+{
+  margin-left: 70px;
+}
